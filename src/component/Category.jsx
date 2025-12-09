@@ -27,7 +27,7 @@ function Category() {
       <h2 className='text-3xl font-semibold text-center mb-8'>Shop by Category</h2>
       <div className=' grid grid-cols-2 sm:grid-cols-4 gap-6'>
         {category.map((category, index) => (
-          <Link to={category.name === "jewelery" ? "/accessories" :
+          <Link to={category.name === "jewelery" ? "/accessories" : 
             category.name === "men's clothing" ? "/men" :
             category.name === "women's clothing" ? "/women" :
             category.name === "eletronics" ? "/electronics" : "/"

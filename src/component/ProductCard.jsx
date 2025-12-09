@@ -11,7 +11,20 @@ function ProductCard({product}) {
         <h3 className="text-lg w-55 font-semibold mb-2  line-clamp-2 ">{product.title}</h3>
         <p className="text-indigo-600  text-lg font-semibold mb-2">${product.price}</p>
         <p className="text-gray-600 w-55 text-sm mb-2 line-clamp-3">{product.description}</p>
-        <button className="w-full bg-indigo-700 text-white py-2 rounded-lg hover:bg-indigo-600 hover:rounded-4xl  transition-colors">Add to Cart</button>
+        <button
+             onClick={(e) => {
+              e.stopPropagation();     
+              const token = localStorage.getItem("token");
+
+              if (!token) {
+                navigate("/login");
+                return;
+              }
+
+              // alert("Add to cart backend ke baad chalega"); 
+            }}
+         className="w-full bg-indigo-700 text-white py-2 rounded-lg hover:bg-indigo-600 hover:rounded-4xl 
+          transition-colors">Add to Cart</button>
     </div>
   )
 }

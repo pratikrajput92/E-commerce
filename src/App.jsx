@@ -6,7 +6,7 @@ import Womans from './Pages/Womans';
 import Homepage from './Pages/Homepage';
 import Accessories from './Pages/Accessories';
 import Electronic from './Pages/Electronic';
-import Login from './Pages/Login';
+import LoginSignup from './component/LoginSignup';
 
 import ProductDetails from './component/ProductDetails';
 import { useEffect, useState } from 'react';
@@ -62,7 +62,7 @@ function App() {
        <Route path='men' element={<Mens/>}/>
        <Route path='women' element={<Womans/>}/>
        <Route path='electronic' element={<Electronic/>}/>
-       <Route path='login' element={<Login/>}/>
+       <Route path='login' element={<LoginSignup/>}/>
        <Route path='product/:id' element={<ProductDetails addCart={addCart}/>}/>
        <Route path='cart' element={<CartPage cart={cart} remove={remove} UpdateQty={UpdateQty}/>}/>
     </Routes>

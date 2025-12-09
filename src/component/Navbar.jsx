@@ -2,11 +2,13 @@
 
 import { Key, Search, ShoppingCart } from 'lucide-react'
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 function Navbar({cart}) { 
 
   const location = useLocation();
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
    
   const baseClass = "text-lg px-2 rounded-lg font-semibold cursor-pointer";
   const activeClass = "bg-orange-500 text-white hover:bg-orange-600 hover:rounded-4xl";
@@ -28,6 +30,14 @@ function Navbar({cart}) {
             <Link to={"/cart"} className='bg-amber-500 relative text-white rounded-xl px-2 p-0.5 cursor-pointer'><ShoppingCart/>
             <span className='absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs'>{cart.reduce((acc, item) => acc + (item.qty || 0), 0)}</span>
             </Link>
+            {!token ? (
+              <button onClick={() => navigate("/login")} className='bg-blue-600 text-white px-3 py-1 rounded-lg hover:bg-blue-700'>Login</button>
+            ) : (
+              <button onClick={() => {
+                localStorage.removeItem("token");
+                navigate("/login");
+              }} className="bg-red-600 text-white px-3 py-1 rounded-lg hover:bg-red-700">Logout</button>
+            )}
           </div>
         </div>
         

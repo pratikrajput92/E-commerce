@@ -8,7 +8,7 @@ import ProductCard from './ProductCard';
 function ProductList({category}) {
  
    const [product, setProduct] = useState([]);
-   const navigate = useNavigate();
+  //  const navigate = useNavigate();
 
   useEffect(() =>{
       
@@ -28,7 +28,7 @@ function ProductList({category}) {
       }
 
     }
-    navigate();
+    // navigate();
     fetch();
   },[category]);
 
